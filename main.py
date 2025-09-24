@@ -11,9 +11,9 @@ from skills.GitHubWriter.github_writer import GitHubWriter
 from dotenv import load_dotenv
 
 def run():
-    env_path = os.path.join(os.path.dirname(__file__), "skills", ".env")
-    load_dotenv(dotenv_path=env_path)    
-    repo_url = "https://github.com/Jonahida/java-spring-monolithic-ecommerce-application"
+    load_dotenv()  # Load environment variables from .env file
+    # repo_url = "https://github.com/Jonahida/java-spring-monolithic-ecommerce-application"
+    repo_url = "https://github.com/qamarqazi-microsoft/monolithic"
     repo_path = clone_repo(repo_url)
 
     parser = CodeParser()
