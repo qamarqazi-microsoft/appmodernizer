@@ -1,11 +1,13 @@
 def load_prompt(architecture, domain_models, api_endpoints, logic_summaries, dependencies, entity_name=None):
     prompt = (
-        "You are a code generation assistant. Based on the following inputs, generate a complete microservice in Java Spring Boot. "
-        "For each resource, output the code as follows: '// FILE: <filename>\\n<code>' (e.g., '// FILE: User.java'). "
-        "Generate separate files for Entity, Controller, Service, Repository, application.yml, and Dockerfile. "
+        "You are a code generation assistant. Based on the following inputs, generate a complete microservice in C# .NET (ASP.NET Core). "
+        "For each resource, output the code as follows: '// FILE: <filename>\\n<code>' (e.g., '// FILE: UserController.cs'). "
+        "Generate separate files for Entity (Model), Controller, Service, Repository, Application entry points (Program.cs, Startup.cs), "
+        "project file (.csproj), configuration (appsettings.json or application.yml), and Dockerfile. "
         "Place all files for this microservice directly in a folder named after the entity (e.g., 'User/'). "
-        "Do NOT use any nested folders, package directories, or src/main/java structure. "
+        "Do NOT use any nested folders or namespaces that imply folder structure. "
         "All files must be at the top level of the microservice folder. "
+        "Use idiomatic C# conventions including namespaces, dependency injection, and async patterns where appropriate. "
         "Do not include any explanations or extra text.\n\n"
     )
 
@@ -31,5 +33,8 @@ def load_prompt(architecture, domain_models, api_endpoints, logic_summaries, dep
     for key, value in architecture.items():
         prompt += f"- {key}: {value}\n"
 
-    ##prompt += f"\nGenerate all files for the microservice in a folder named '{entity_name}/' (if entity_name is provided). Each file should start with the marker '// FILE: <filename>' and contain only the code. Do not include explanations.\n"
+    # Optional: clarify the output folder if entity_name is provided
+    if entity_name:
+        prompt += f"\nGenerate all files for the microservice in a folder named '{entity_name}/'. Each file should start with the marker '// FILE: <filename>' and contain only the code. Do not include explanations.\n"
+
     return prompt

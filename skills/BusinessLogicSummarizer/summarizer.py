@@ -18,10 +18,10 @@ class BusinessLogicSummarizer:
             class_name = class_match.group(1) if class_match else "UnknownClass"
 
             prompt = f"""
-                You are a software analyst. Summarize the business logic of the following Java class in clear, concise language.
+                You are a software analyst. Summarize the business logic of the following C# .net class in clear, concise language.
                 Focus on what the class does, its responsibilities, and how it interacts with other components.
 
-                Java Class:
+                C# Class:
                 {content}
                 """
             client = AzureOpenAI(
@@ -47,6 +47,6 @@ class BusinessLogicSummarizer:
 # Example usage
 if __name__ == "__main__":
     tool = BusinessLogicSummarizer()
-    sample_code_files = [{"path": "UserService.java", "content": "public class UserService { ... }"}]
+    sample_code_files = [{"path": "UserService.cs", "content": "public class UserService { ... }"}]
     result = tool.summarize_business_logic(sample_code_files)
     print(result)

@@ -19,5 +19,5 @@ def clone_repo(repo_url, branch="main"):
 
 # Example usage
 if __name__ == "__main__":
-    repo_url = "https://github.com/Jonahida/java-spring-monolithic-ecommerce-application"
+    repo_url = "https://github.com/qamarqazi-microsoft/monolithic"
     clone_repo(repo_url)
