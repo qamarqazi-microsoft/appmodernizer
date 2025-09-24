@@ -1,0 +1,12 @@
+
+steps:
+  - name: clone_repo
+    skill: GitHubReader
+  - name: parse_code
+    skill: CodeParser
+  - name: design_architecture
+    skill: ArchitectureDesigner
+  - name: generate_code
+    skill: CodeGenerator
+  - name: validate_output
+    skill: Validator

@@ -1,0 +1,6 @@
+
+{
+  "agent_name": "MonolithRefactorAgent",
+  "language": "Python",
+  "skills": ["GitHubReader", "CodeParser", "ArchitectureDesigner", "CodeGenerator", "Validator"]
+}
